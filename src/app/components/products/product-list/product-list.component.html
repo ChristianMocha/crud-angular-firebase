@@ -1,0 +1,49 @@
+<br>
+<br>
+<div class="card">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="table-resposive" style="overflow-x: scroll;">
+
+                    <table class="table">
+              
+                        <thead  [ngStyle]="{'background-color': 'rgba(0,0,0,0.1)'}">
+                            <tr>
+                                <th scope="col" [ngStyle]="{'width': '100px'}" >Nombre</th>
+                                <th scope="col" [ngStyle]="{'width': '100px'}" >Categoria</th>
+                                <th scope="col" [ngStyle]="{'width': '100px'}" >Localidad</th>
+                                <th scope="col" [ngStyle]="{'width': '100px'}" >Precio</th>
+                                <th scope="col" [ngStyle]="{'width': '150px'}" >Opciones</th>
+                            </tr>
+                        </thead>
+                        <tbody class="">
+                            <tr *ngFor="let products of products">
+                                <td>{{products.name}}</td>
+                                <td>{{products.category}}</td>
+                                <td>{{products.location}}</td>
+                                <td>{{products.price}}</td>
+                               
+
+                                <td class="text-center w120">
+                                    <button type="button" class="btn btn-danger btn-rounded" (click)="delete(products.id)">
+                                        Eliminar
+                                    </button>
+                                    &nbsp;
+                             
+                                    <button type="button" class="btn btn-secondary btn-rounded" (click)="edit(products)">
+                                        Editar
+                                    </button>
+
+                                </td>
+                            </tr>
+                        </tbody>
+                        
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

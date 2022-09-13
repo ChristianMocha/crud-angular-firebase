@@ -1,0 +1,51 @@
+<br>
+<div class="card">
+    <div class="card-body">
+        <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+
+            <input type="hidden" formControlName="id" aria-describedby="emailHelp" placeholder="id" [(ngModel)]="productService.selectedProduct.id"/>
+           
+
+            <div class="form-group">
+                <input nbInput type="text" class="form-control" id="name" formControlName="name" aria-describedby="emailHelp" placeholder="Nombre del producto" required [(ngModel)]="productService.selectedProduct.name"/>
+            </div>
+
+            <div class="form-group">
+                <input nbInput type="text" class="form-control" id="category" formControlName="category" aria-describedby="emailHelp" placeholder="categoria del producto" required [(ngModel)]="productService.selectedProduct.category"/>
+            </div>
+
+            <div class="form-group">
+                <input nbInput type="text" class="form-control" id="location" formControlName="location" aria-describedby="emailHelp" placeholder="Localidad" required [(ngModel)]="productService.selectedProduct.location"/>
+            </div>
+
+            <div class="form-group">
+                <input nbInput type="text" class="form-control" id="price" formControlName="price" aria-describedby="emailHelp" placeholder="Precio" required [(ngModel)]="productService.selectedProduct.price"/>
+            </div>
+
+            <ng-container *ngIf="!productService.selectedProduct.id; else idProd">
+                <div class="from-group text-center">
+                    <button class="btn btn-info btn-rounded" type="submit">
+                        Crear Producto
+                    </button>
+                </div>
+            </ng-container>
+
+            <ng-template #idProd>
+                <div class="from-group text-center">
+                    <button class="btn btn-info btn-rounded" type="submit">
+                        Actualizar Producto
+                    </button>
+                    &nbsp;
+    
+                    <button type="reset" class="btn btn-secondary btn-rounded" (click)="resetForm(productForm)">
+                        Resetear
+                    </button>
+                </div>
+            </ng-template>
+
+            
+            
+            
+        </form>
+    </div>
+</div>
